@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.higgsfield.ai/docs/how-to/introduction + https://docs.higgsfield.ai/docs/how-to/sdk
+docs: https://docs.higgsfield.ai/docs/how-to/introduction
+description: >-
+  The Higgsfield API authenticates with an API key and secret issued from the
+  Higgsfield Cloud dashboard (cloud.higgsfield.ai). Credentials are sent on the
+  Authorization header using the custom "Key" scheme:
+  "Authorization: Key {api_key}:{api_key_secret}". There is no OAuth 2.0 / OIDC
+  scope surface on the REST API (OAuth is used only for the remote MCP server).
+  The OpenAPI document does not declare securitySchemes; this profile is
+  captured from the developer docs.
+summary:
+  types:
+  - http
+  api_key_in:
+  - header
+  oauth2_flows: []
+schemes:
+- name: HiggsfieldKey
+  type: http
+  scheme: Key
+  in: header
+  header: Authorization
+  format: "Key {api_key}:{api_key_secret}"
+  description: >-
+    Custom Authorization scheme. The value is the literal word "Key" followed by
+    the API key and secret joined with a colon. Generate credentials in the
+    Higgsfield Cloud dashboard.
+  sources:
+  - https://docs.higgsfield.ai/docs/how-to/introduction
+credentials:
+  dashboard: https://cloud.higgsfield.ai/
+  sdk_env_vars:
+  - HF_KEY  # "your-api-key:your-api-secret"
+  - HF_API_KEY
+  - HF_API_SECRET
