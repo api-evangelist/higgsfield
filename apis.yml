@@ -1,9 +1,31 @@
 aid: higgsfield
 name: Higgsfield
-description: 'Higgsfield is a company surfaced as a portfolio company of accel, menlo-ventures and added
-  to the API Evangelist network as a stub for enrichment. Sector: ai. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: >-
+  Higgsfield is a multi-model generative AI platform for video, image, editing,
+  storyboarding, and commercial content creation. Its public developer API
+  (platform.higgsfield.ai) exposes 100+ generative models — Sora 2, Veo 3.1,
+  Kling, Seedance, Hailuo, FLUX, Nano Banana, Reve, and Higgsfield's own Soul /
+  DoP / Popcorn models — behind a single asynchronous request/response contract:
+  POST a model endpoint to enqueue a generation, then poll the request status or
+  receive a webhook when it completes. The platform ships an official Python SDK
+  (higgsfield-client), a Node.js/TypeScript SDK (@higgsfield/client), a
+  cross-platform CLI (@higgsfield/cli), a remote MCP server (mcp.higgsfield.ai)
+  for agent access, and a public set of Agent Skills for Claude, Cursor, and
+  Codex. Backed by Accel and Menlo Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/higgsfield/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://higgsfield.ai/favicon.ico
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -13,16 +35,113 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
 - Ai
-apis: []
+- Generative AI
+- Video Generation
+- Image Generation
+- Machine Learning
+- Media
+- Content Creation
+- Developer API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Higgsfield API
+  description: >-
+    Asynchronous generative-media API. Submit a generation request to any of the
+    100+ model endpoints (POST /{model_id}), then retrieve status
+    (GET /requests/{request_id}/status), cancel a queued request
+    (POST /requests/{request_id}/cancel), or receive a webhook when the request
+    reaches a final status (completed, failed, nsfw). Authenticated with an API
+    key + secret via the "Authorization: Key {key}:{secret}" scheme.
+  humanURL: https://docs.higgsfield.ai/docs
+  baseURL: https://platform.higgsfield.ai
+  tags:
+  - Generative AI
+  - Video Generation
+  - Image Generation
+  properties:
+  - type: OpenAPI
+    url: openapi/higgsfield-openapi-original.json
+  - type: Overlay
+    url: overlays/higgsfield-openapi-overlay.yaml
+  - type: Documentation
+    url: https://docs.higgsfield.ai/docs
+  - type: APIReference
+    url: https://docs.higgsfield.ai/docs/how-to/introduction
 common:
+- type: AgenticAccess
+  url: agentic-access/higgsfield-agentic-access.yml
+- type: VulnerabilityDisclosure
+  url: security/higgsfield-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/higgsfield-domain-security.yml
 - type: Website
   url: https://higgsfield.ai/
+- type: DeveloperPortal
+  url: https://cloud.higgsfield.ai/
+- type: Documentation
+  url: https://docs.higgsfield.ai/docs
+- type: GettingStarted
+  url: https://docs.higgsfield.ai/docs/how-to/introduction
+- type: APIReference
+  url: https://docs.higgsfield.ai/docs/how-to/introduction
+- type: Blog
+  url: https://higgsfield.ai/blog
+- type: Support
+  url: https://higgsfield.ai/contact
+- type: GitHubOrganization
+  url: https://github.com/higgsfield-ai
+- type: Pricing
+  url: https://higgsfield.ai/pricing
+- type: SignUp
+  url: https://cloud.higgsfield.ai/
+- type: TermsOfService
+  url: https://higgsfield.ai/terms-of-use-agreement
+- type: PrivacyPolicy
+  url: https://higgsfield.ai/privacy-policy
+- type: Authentication
+  url: authentication/higgsfield-authentication.yml
+- type: Packages
+  url: packages/higgsfield-packages.yml
+- type: SDKs
+  url: packages/higgsfield-packages.yml
+- type: CLI
+  url: cli/higgsfield-cli.yml
+- type: MCPServer
+  url: mcp/higgsfield-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: LLMsTxt
+  url: llms/higgsfield-llms.txt
+- type: SecurityTxt
+  url: well-known/higgsfield-security.txt
+- type: WellKnown
+  url: well-known/higgsfield-well-known.yml
+- type: Security
+  url: https://higgsfield.ai/security-policy.pdf
+- type: Conventions
+  url: conventions/higgsfield-conventions.yml
+- type: Conformance
+  url: conformance/higgsfield-conformance.yml
+- type: ErrorCatalog
+  url: errors/higgsfield-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/higgsfield-lifecycle.yml
+- type: StatusPage
+  url: https://status.higgsfield.ai/
+- type: DataModel
+  url: data-model/higgsfield-data-model.yml
+- type: Webhooks
+  url: asyncapi/higgsfield-webhooks.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

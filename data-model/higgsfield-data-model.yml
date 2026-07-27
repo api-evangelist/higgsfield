@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/higgsfield-openapi-original.json + https://docs.higgsfield.ai/docs/how-to/introduction
+description: >-
+  Entity graph derived from the Higgsfield OpenAPI document and the documented
+  request/response model. The API is a thin async job surface: a generation
+  Request is created against a Model and yields image or video Result assets.
+entities:
+- name: Model
+  description: >-
+    A generative model addressed by its model_id path (e.g.
+    higgsfield-ai/soul/standard, veo3.1, kling-video/v2.1/master/text-to-video).
+    100+ models across image and video families.
+  id_field: model_id
+  key_families: [higgsfield-ai/*, veo3.1/*, sora-2/*, kling-video/*, bytedance/seedance/*, minimax/hailuo-*, flux-pro/*, reve/*, nano-banana, wan-25-preview/*]
+- name: Request
+  description: An async generation job created by POSTing to a model endpoint.
+  id_field: request_id
+  id_format: uuid
+  fields: [status, request_id, status_url, cancel_url]
+  statuses: [queued, in_progress, completed, failed, nsfw, canceled]
+- name: Result
+  description: The generated media returned on a completed Request.
+  variants:
+  - images[]  # each { url }
+  - video     # { url }
+relationships:
+- from: Request
+  to: Model
+  type: belongs_to
+  via: model_id (path)
+- from: Request
+  to: Result
+  type: has_one
+  via: images[] / video (on completed status)

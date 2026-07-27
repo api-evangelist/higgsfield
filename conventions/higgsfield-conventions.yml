@@ -1,0 +1,52 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.higgsfield.ai/docs/how-to/introduction + /how-to/webhooks + /help/faq
+description: >-
+  Cross-cutting request/response semantics for the Higgsfield API, captured from
+  the developer docs and the OpenAPI document.
+base_url: https://platform.higgsfield.ai
+authentication:
+  style: api-key-and-secret
+  header: 'Authorization: Key {api_key}:{api_key_secret}'
+  ref: authentication/higgsfield-authentication.yml
+async_model:
+  pattern: enqueue-then-poll-or-webhook
+  submit: POST /{model_id}    # returns {status: queued, request_id, status_url, cancel_url}
+  status: GET /requests/{request_id}/status
+  cancel: POST /requests/{request_id}/cancel
+  statuses: [queued, in_progress, completed, failed, nsfw, canceled]
+  final_statuses: [completed, failed, nsfw]
+request_tracing:
+  request_id: >-
+    Every submission returns a request_id (UUID) that identifies the generation
+    across status, cancel, and webhook payloads.
+idempotency:
+  supported: false
+  note: >-
+    The Higgsfield docs do not document an idempotency-key header or parameter.
+    Retries create new generation requests. (No Idempotency pointer emitted.)
+pagination:
+  supported: false
+  note: No list endpoints in the public API; each request targets a single generation by id.
+webhooks:
+  supported: true
+  mechanism: hf_webhook query parameter on the submit request
+  ref: asyncapi/higgsfield-webhooks.yml
+error_envelope:
+  failed: '{ status: failed, request_id, error: "<message>" }'
+  nsfw: '{ status: nsfw, request_id }'
+  ref: errors/higgsfield-problem-types.yml
+billing:
+  model: credits
+  not_charged: [failed, nsfw]
+  ref: https://higgsfield.ai/pricing
+rate_limits:
+  documented: true
+  note: >-
+    Rate limits vary by subscription plan and model; viewable in the cloud
+    dashboard. No numeric limits or rate-limit response headers are published.
+retention:
+  output_files: minimum 7 days from creation
+versioning:
+  scheme: none-published
+  note: Model endpoints are versioned in the path segment of the model_id (e.g. veo3.1, kling-video/v2.1).

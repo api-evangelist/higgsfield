@@ -1,0 +1,39 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.higgsfield.ai/docs/how-to/sdk + https://github.com/higgsfield-ai
+description: >-
+  Official first-party client libraries and CLI for the Higgsfield API. The
+  Python SDK is documented on the docs SDK page and published to PyPI; the
+  Node.js/TypeScript SDK and CLI are published to npm under the @higgsfield
+  scope; the CLI is also distributed via a Homebrew tap and a curl installer.
+packages:
+- language: python
+  registry: pypi
+  name: higgsfield-client
+  url: https://pypi.org/project/higgsfield-client/
+  install: pip install higgsfield-client
+  repository: https://github.com/higgsfield-ai/higgsfield-client
+  version: 0.1.0
+  official: true
+  notes: >-
+    Official Higgsfield API Python SDK. Sync + async. Auth via HF_KEY or
+    HF_API_KEY + HF_API_SECRET env vars. Entry point higgsfield_client.subscribe.
+- language: javascript
+  registry: npm
+  name: "@higgsfield/client"
+  url: https://www.npmjs.com/package/@higgsfield/client
+  install: npm install @higgsfield/client
+  repository: https://github.com/higgsfield-ai/higgsfield-js
+  official: true
+  notes: Official Higgsfield SDK for Node.js and TypeScript.
+- language: javascript
+  registry: npm
+  name: "@higgsfield/cli"
+  url: https://www.npmjs.com/package/@higgsfield/cli
+  install: npm install -g @higgsfield/cli
+  repository: https://github.com/higgsfield-ai/cli
+  official: true
+  notes: >-
+    Cross-platform install of the higgsfield CLI. Also installable via
+    Homebrew (brew install higgsfield-ai/tap/higgsfield) and a curl installer.
+    Command surface catalogued in cli/higgsfield-cli.yml.

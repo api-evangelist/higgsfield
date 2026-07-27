@@ -1,0 +1,6 @@
+Contact: mailto:security@higgsfield.ai
+Encryption: https://higgsfield.ai/.well-known/pgp-key.txt
+Preferred-Languages: en
+Policy: https://higgsfield.ai/security-policy.pdf
+Acknowledgement: https://higgsfield.ai/security/hall-of-fame // Coming soon!
+Expires: 2027-03-04T00:00:00.000Z

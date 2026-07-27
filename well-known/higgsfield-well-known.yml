@@ -1,0 +1,29 @@
+generated: '2026-07-19'
+method: searched
+source: live probe of /.well-known/ on higgsfield.ai + platform.higgsfield.ai
+description: >-
+  Results of probing the /.well-known/ discovery surface for the Higgsfield
+  hosts. Status is the HTTP code observed at fetch time. Only documents that
+  returned a real, correctly-typed payload were saved verbatim. The API host
+  platform.higgsfield.ai answers 405 (JSON) to every GET including /.well-known/
+  paths, so those are recorded as not-a-document.
+hosts:
+- host: https://higgsfield.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    type: text/plain
+    file: higgsfield-security.txt
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://platform.higgsfield.ai
+  documents:
+  - path: /.well-known/security.txt
+    status: 405
+    note: API host returns 405 application/json to all GET requests

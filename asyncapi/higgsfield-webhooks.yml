@@ -1,0 +1,33 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.higgsfield.ai/docs/how-to/webhooks
+spec_type: Webhooks
+description: >-
+  Higgsfield delivers generation-completion notifications via webhooks. There is
+  no published AsyncAPI document; this captures the documented webhook catalog.
+  A webhook is registered per-request by adding the hf_webhook query parameter to
+  the generation submit call.
+registration:
+  mechanism: query-parameter
+  parameter: hf_webhook
+  example: 'POST /higgsfield-ai/soul/standard?hf_webhook=https://webhook.url/example'
+delivery:
+  transport: HTTP POST to the caller-supplied URL
+  triggered_on: [completed, failed, nsfw]
+events:
+- name: generation.completed.image
+  status: completed
+  payload_fields: [status, request_id, status_url, cancel_url, images]
+  example: '{ "status":"completed", "request_id":"...", "images":[{"url":"https://images.url/example"}] }'
+- name: generation.completed.video
+  status: completed
+  payload_fields: [status, request_id, status_url, cancel_url, video]
+  example: '{ "status":"completed", "request_id":"...", "video":{"url":"https://video.url/example"} }'
+- name: generation.failed
+  status: failed
+  payload_fields: [status, request_id, error]
+  example: '{ "status":"failed", "request_id":"...", "error":"Generation fail message" }'
+- name: generation.nsfw
+  status: nsfw
+  payload_fields: [status, request_id]
+  example: '{ "status":"nsfw", "request_id":"..." }'

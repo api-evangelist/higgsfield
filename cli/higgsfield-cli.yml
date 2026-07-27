@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: https://github.com/higgsfield-ai/cli
+description: >-
+  Official first-party Higgsfield CLI — a terminal tool for generating images,
+  videos, 3D assets, audio, and finished-video analysis using 40+ AI models
+  (FLUX.2, Gemini Omni Flash, Kling v3.0, and more). Binary name: higgsfield.
+binary: higgsfield
+repository: https://github.com/higgsfield-ai/cli
+install:
+- method: curl
+  command: curl -fsSL https://raw.githubusercontent.com/higgsfield-ai/cli/main/install.sh | sh
+  platforms: [macos, linux]
+- method: homebrew
+  command: brew install higgsfield-ai/tap/higgsfield
+  platforms: [macos]
+  tap: https://github.com/higgsfield-ai/homebrew-tap
+- method: npm
+  command: npm install -g @higgsfield/cli
+  platforms: [macos, linux, windows]
+- method: manual
+  command: Download the archive from GitHub Releases and place the binary in $PATH
+commands:
+- group: auth
+  description: Authentication management
+- group: generate
+  description: Create, cost, wait for, and retrieve generation jobs
+- group: workflow
+  description: Workflow operations
+- group: model
+  description: Model inspection
+- group: website
+  description: Full-stack site creation and deployment
+- group: game
+  description: Browser-game deployment
+- group: voices
+  description: Voice management
+- group: soul-id
+  description: Character (Soul ID) training
+- group: account
+  description: Credits and transactions
+- group: marketing-studio
+  description: Branded asset generation

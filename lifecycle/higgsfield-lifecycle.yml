@@ -1,0 +1,28 @@
+generated: '2026-07-19'
+method: searched
+source: https://status.higgsfield.ai/ + https://docs.higgsfield.ai/docs/help/faq
+description: >-
+  Operational lifecycle signals for the Higgsfield API, captured from the status
+  page and developer docs.
+versioning:
+  scheme: path-embedded-model-version
+  note: >-
+    Each model endpoint carries its own version in the path (e.g. veo3.1,
+    kling-video/v2.1, kling-video/v2.5-turbo, seedance/v1). No global API version
+    or dated-version policy is published.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  note: No formal deprecation / Sunset (RFC 8594) policy is published.
+sla:
+  url: https://status.higgsfield.ai/
+  uptime_target: null
+  note: 90-day uptime history published; no contractual uptime target stated for standard plans.
+status_page: https://status.higgsfield.ai/
+status_page_provider: Instatus
+status_components:
+- API
+- Cloud Console
+data_retention:
+  output_files: minimum 7 days from creation
+deprecated_operations: []

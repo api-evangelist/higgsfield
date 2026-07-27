@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Higgsfield API
+  version: 1.0.0
+extends: openapi/higgsfield-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: enriched
+    x-apievangelist-slug: higgsfield
+    x-authentication: 'Authorization: Key {api_key}:{api_key_secret}'
+    x-async-model: enqueue-then-poll-or-webhook
+    x-webhooks: hf_webhook query parameter; POST callback on completed/failed/nsfw
+- target: $.servers
+  update:
+    x-base-url: https://platform.higgsfield.ai
+- target: $.info
+  update:
+    x-artifacts:
+      authentication: authentication/higgsfield-authentication.yml
+      conventions: conventions/higgsfield-conventions.yml
+      errors: errors/higgsfield-problem-types.yml
+      webhooks: asyncapi/higgsfield-webhooks.yml
+      lifecycle: lifecycle/higgsfield-lifecycle.yml
+      packages: packages/higgsfield-packages.yml
+      cli: cli/higgsfield-cli.yml
+      mcp: mcp/higgsfield-mcp.yml

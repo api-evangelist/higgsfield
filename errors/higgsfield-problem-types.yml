@@ -1,0 +1,42 @@
+generated: '2026-07-19'
+method: searched
+source: https://docs.higgsfield.ai/docs/how-to/webhooks + /how-to/introduction + /help/faq
+format: status-envelope
+description: >-
+  The Higgsfield API does not use RFC 9457 problem+json. Errors and terminal
+  outcomes are surfaced through the async request status envelope (in the status
+  poll response and in webhook notifications). The OpenAPI document declares only
+  200/202 responses, so this catalog is captured from the documented runtime
+  status model rather than derived from spec 4xx/5xx responses.
+envelope:
+  fields:
+  - status      # queued | in_progress | completed | failed | nsfw | canceled
+  - request_id
+  - error       # present on status: failed — human-readable failure message
+problems:
+- status_value: failed
+  title: Generation failed
+  detail: >-
+    The generation did not complete. The "error" field carries a human-readable
+    message. Failed requests are not charged and any associated credits are
+    refunded.
+  billed: false
+- status_value: nsfw
+  title: Content moderation rejection
+  detail: >-
+    Input parameters or generated output did not pass the content-moderation
+    system. Policy varies by model. NSFW-flagged requests are not charged and are
+    refunded.
+  billed: false
+- status_value: canceled
+  title: Request canceled
+  detail: The request was canceled via POST /requests/{request_id}/cancel before processing completed.
+- condition: timeout
+  title: Generation timeout
+  detail: >-
+    Requests have model-specific timeout limits; exceeding them marks the request
+    failed (not charged). Resubmit or contact support for persistent timeouts.
+  billed: false
+notes:
+- Failed and NSFW requests are automatically refunded (billing is on successful completion only).
+- Output files are retained a minimum of 7 days.

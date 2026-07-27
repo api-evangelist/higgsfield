@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: generated
+source: >-
+  Grounded in openapi/higgsfield-openapi-original.json and the Higgsfield docs.
+  Higgsfield also publishes an official Agent Skills set at
+  https://github.com/higgsfield-ai/skills (higgsfield-generate, higgsfield-soul-id,
+  higgsfield-product-photoshoot, higgsfield-marketplace-cards, higgsfield-websites,
+  higgsfield-video-explainer, higgsfield-game-generation) for Claude Code, Cursor,
+  and Codex.
+skills:
+- file: higgsfield-generate-image.md
+  name: Generate an image from a text prompt
+  api: openapi/higgsfield-openapi-original.json
+  operations: [submit_generation, get_request_status]
+- file: higgsfield-generate-video.md
+  name: Generate a video and receive it via webhook
+  api: openapi/higgsfield-openapi-original.json
+  operations: [submit_generation, get_request_status]
+provider_skills:
+  repo: https://github.com/higgsfield-ai/skills
+  note: Official published skills; not vendored here to avoid stale copies.
