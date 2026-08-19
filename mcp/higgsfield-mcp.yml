@@ -1,16 +1,12 @@
 generated: '2026-07-19'
 method: searched
 status: published
-source: >-
-  https://higgsfield.ai/academy/how-to-use/generate-ai-videos-from-claude-with-higgsfield-mcp
-description: >-
-  Official hosted (remote) Higgsfield MCP server. Exposes the full Higgsfield
-  generation platform (30+ video and image models — Veo 3.1, Sora 2, Kling 3.0,
-  Seedance 2.0, and more) to MCP-capable agents. Added to Claude as a custom
-  connector: Settings -> Connectors -> paste the URL. OAuth authorization is
-  approved once and persists across chats; credentials stay server-side and the
-  agent only ever sees tool results. On managed Anthropic plans the MCP URL must
-  be admin-allowlisted.
+source: https://higgsfield.ai/academy/how-to-use/generate-ai-videos-from-claude-with-higgsfield-mcp
+description: 'Official hosted (remote) Higgsfield MCP server. Exposes the full Higgsfield generation platform
+  (30+ video and image models — Veo 3.1, Sora 2, Kling 3.0, Seedance 2.0, and more) to MCP-capable agents.
+  Added to Claude as a custom connector: Settings -> Connectors -> paste the URL. OAuth authorization
+  is approved once and persists across chats; credentials stay server-side and the agent only ever sees
+  tool results. On managed Anthropic plans the MCP URL must be admin-allowlisted.'
 server:
   name: higgsfield
   transport: http
@@ -21,8 +17,15 @@ capabilities:
 - Multi-model AI image generation
 - Accepts text, image, sketch, pose reference, audio clip, or existing footage as input
 tools: []
-tools_note: >-
-  The server exposes generation across the platform's 30+ models; a per-tool
-  manifest is not published. Candidate tool surface can be derived from the REST
-  model endpoints in openapi/higgsfield-openapi-original.json (one submit per
-  model_id, plus status and cancel).
+tools_note: The server exposes generation across the platform's 30+ models; a per-tool manifest is not
+  published. Candidate tool surface can be derived from the REST model endpoints in openapi/higgsfield-openapi-original.json
+  (one submit per model_id, plus status and cancel).
+deployment:
+  mode: none
+  endpoint: https://mcp.higgsfield.ai
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census

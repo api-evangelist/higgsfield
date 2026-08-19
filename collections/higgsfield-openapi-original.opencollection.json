@@ -1,0 +1,717 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "API Reference"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Get Generation Status",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://platform.higgsfield.ai/requests/:request_id/status",
+        "params": [
+          {
+            "name": "request_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get Generation Status"
+    },
+    {
+      "info": {
+        "name": "Get Generation Status",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/requests/:request_id/cancel",
+        "params": [
+          {
+            "name": "request_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Get Generation Status"
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/dop/turbo",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/dop/turbo",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/dop/lite",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/dop/lite",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/dop/standard",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/dop/standard",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/popcorn/auto",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/popcorn/auto",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/soul/character",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/soul/character",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/soul/reference",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/soul/reference",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /higgsfield-ai/soul/standard",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/higgsfield-ai/soul/standard",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1/first-last-frame-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1/first-last-frame-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1/fast/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1/fast/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1/fast",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1/fast",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1/fast/first-last-frame-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1/fast/first-last-frame-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /veo3.1/reference-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/veo3.1/reference-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /bytedance/seedance/v1/lite/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/bytedance/seedance/v1/lite/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /bytedance/seedance/v1/lite/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/bytedance/seedance/v1/lite/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /bytedance/seedance/v1/pro/fast/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/bytedance/seedance/v1/pro/fast/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /bytedance/seedance/v1/pro/fast/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/bytedance/seedance/v1/pro/fast/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /flux-pro/kontext/max/text-to-image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/flux-pro/kontext/max/text-to-image",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.1/master/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.1/master/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.1/master/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.1/master/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.1/pro/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.1/pro/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.1/standard/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.1/standard/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.5-turbo/pro/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.5-turbo/pro/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.5-turbo/pro/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.5-turbo/pro/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /kling-video/v2.5-turbo/standard/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/kling-video/v2.5-turbo/standard/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-02/pro/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-02/pro/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-02/pro/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-02/pro/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-02/standard/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-02/standard/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-02/standard/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-02/standard/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-2.3-fast/pro/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-2.3-fast/pro/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-2.3-fast/standard/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-2.3-fast/standard/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-2.3/pro/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-2.3/pro/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-2.3/pro/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-2.3/pro/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-2.3/standard/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-2.3/standard/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /minimax/hailuo-2.3/standard/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/minimax/hailuo-2.3/standard/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /nano-banana",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/nano-banana",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /reve/edit",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/reve/edit",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /reve/fast/edit",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/reve/fast/edit",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /reve/fast/remix",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/reve/fast/remix",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /reve/remix",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/reve/remix",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /reve/text-to-image",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/reve/text-to-image",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /sora-2/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/sora-2/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /sora-2/image-to-video/pro",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/sora-2/image-to-video/pro",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /sora-2/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/sora-2/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /sora-2/text-to-video/pro",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/sora-2/text-to-video/pro",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /wan-25-preview/image-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/wan-25-preview/image-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    },
+    {
+      "info": {
+        "name": "POST /wan-25-preview/text-to-video",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://platform.higgsfield.ai/wan-25-preview/text-to-video",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      }
+    }
+  ],
+  "bundled": true
+}
