@@ -38,6 +38,16 @@ created: '2026-07-17'
 modified: '2026-07-19'
 tags:
 - Company
+- Artificial Intelligence
+- Generative AI
+- Video Generation
+- Image-Generation
+- Machine-Learning
+- Media
+- Content Creation
+- Developer API
+tags_raw:
+- Company
 - Ai
 - Generative AI
 - Video Generation
@@ -63,6 +73,10 @@ apis:
   humanURL: https://docs.higgsfield.ai/docs
   baseURL: https://platform.higgsfield.ai
   tags:
+  - Generative AI
+  - Video Generation
+  - Image-Generation
+  tags_raw:
   - Generative AI
   - Video Generation
   - Image Generation
