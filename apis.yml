@@ -53,8 +53,8 @@ tags:
 - Artificial Intelligence
 - Generative AI
 - Video Generation
-- Image-Generation
-- Machine-Learning
+- Image Generation
+- Machine Learning
 - Media
 - Content Creation
 - Developer API
@@ -68,6 +68,8 @@ tags_raw:
 - Media
 - Content Creation
 - Developer API
+- Image-Generation
+- Machine-Learning
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -87,11 +89,12 @@ apis:
   tags:
   - Generative AI
   - Video Generation
-  - Image-Generation
+  - Image Generation
   tags_raw:
   - Generative AI
   - Video Generation
   - Image Generation
+  - Image-Generation
   properties:
   - type: OpenAPI
     url: openapi/higgsfield-openapi-original.json
