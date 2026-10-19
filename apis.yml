@@ -80,35 +80,65 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 apis:
-- name: Higgsfield API
-  description: >-
-    Asynchronous generative-media API. Submit a generation request to any of the
-    100+ model endpoints (POST /{model_id}), then retrieve status
-    (GET /requests/{request_id}/status), cancel a queued request
-    (POST /requests/{request_id}/cancel), or receive a webhook when the request
-    reaches a final status (completed, failed, nsfw). Authenticated with an API
-    key + secret via the "Authorization: Key {key}:{secret}" scheme.
+- aid: higgsfield:higgsfield-kling-video-api
+  name: Higgsfield Kling Video API
+  description: The Kling Video API from Higgsfield — 3 operation(s) for kling video.
   humanURL: https://docs.higgsfield.ai/docs
   baseURL: https://platform.higgsfield.ai
   tags:
-  - Generative AI
-  - Video Generation
-  - Image Generation
-  tags_raw:
-  - Generative AI
-  - Video Generation
-  - Image Generation
-  - Image-Generation
+  - Kling Video
   properties:
   - type: OpenAPI
-    url: openapi/higgsfield-openapi-original.json
-  - type: Overlay
-    url: overlays/higgsfield-openapi-overlay.yaml
+    url: openapi/higgsfield-kling-video-api-openapi.yml
+  - type: Documentation
+    url: https://docs.higgsfield.ai/docs
+  - type: APIReference
+    url: https://docs.higgsfield.ai/docs/how-to/introduction
+- aid: higgsfield:higgsfield-minimax-api
+  name: Higgsfield Minimax API
+  description: The Minimax API from Higgsfield — 2 operation(s) for minimax.
+  humanURL: https://docs.higgsfield.ai/docs
+  baseURL: https://platform.higgsfield.ai
+  tags:
+  - Minimax
+  properties:
+  - type: OpenAPI
+    url: openapi/higgsfield-minimax-api-openapi.yml
+  - type: Documentation
+    url: https://docs.higgsfield.ai/docs
+  - type: APIReference
+    url: https://docs.higgsfield.ai/docs/how-to/introduction
+- aid: higgsfield:higgsfield-requests-api
+  name: Higgsfield Requests API
+  description: The Requests API from Higgsfield — 2 operation(s) for requests.
+  humanURL: https://docs.higgsfield.ai/docs
+  baseURL: https://platform.higgsfield.ai
+  tags:
+  - Requests
+  properties:
+  - type: OpenAPI
+    url: openapi/higgsfield-requests-api-openapi.yml
+  - type: Documentation
+    url: https://docs.higgsfield.ai/docs
+  - type: APIReference
+    url: https://docs.higgsfield.ai/docs/how-to/introduction
+- aid: higgsfield:higgsfield-soul-api
+  name: Higgsfield Soul API
+  description: The Soul API from Higgsfield — 1 operation(s) for soul.
+  humanURL: https://docs.higgsfield.ai/docs
+  baseURL: https://platform.higgsfield.ai
+  tags:
+  - Soul
+  properties:
+  - type: OpenAPI
+    url: openapi/higgsfield-soul-api-openapi.yml
   - type: Documentation
     url: https://docs.higgsfield.ai/docs
   - type: APIReference
     url: https://docs.higgsfield.ai/docs/how-to/introduction
 common:
+- type: Overlay
+  url: overlays/higgsfield-openapi-overlay.yaml
 - url: https://higgsfield.ai/blog/rss.xml
   type: BlogRSS
 - type: AgenticAccess

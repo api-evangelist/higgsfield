@@ -1,0 +1,25 @@
+{
+  "provider": "higgsfield",
+  "sources": [
+    "_original/higgsfield-openapi.json"
+  ],
+  "outputs": [
+    "higgsfield-kling-video-api-openapi.yml",
+    "higgsfield-minimax-api-openapi.yml",
+    "higgsfield-requests-api-openapi.yml",
+    "higgsfield-soul-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "higgsfield-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "higgsfield-openapi.json: declared missing tag: Kling Video",
+    "higgsfield-openapi.json: declared missing tag: Minimax",
+    "higgsfield-openapi.json: declared missing tag: Requests",
+    "higgsfield-openapi.json: declared missing tag: Soul",
+    "apis.yml register: written (+4 apis, 4 total)"
+  ],
+  "skipped": []
+}

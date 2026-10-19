@@ -1,0 +1,152 @@
+openapi: 3.2.0
+info:
+  title: Higgsfield Requests API
+  version: 2.0.0
+  description: Submit generation requests and retrieve their status and outputs.
+servers:
+- url: https://api.higgsfield.ai
+security:
+- authKey: []
+tags:
+- name: Requests
+paths:
+  /requests/{request_id}/status:
+    get:
+      summary: Get request status
+      operationId: get_request_status
+      parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Request Id
+      responses:
+        '200':
+          description: Current request state and output, when available.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStatus'
+        '401':
+          description: Missing or invalid API credentials.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The request does not exist or belongs to another account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Requests
+      description: Retrieve the current state and output of a generation request.
+  /requests/{request_id}/cancel:
+    post:
+      summary: Cancel a queued request
+      operationId: cancel_request
+      parameters:
+      - name: request_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+          title: Request Id
+      responses:
+        '202':
+          description: The request was canceled.
+        '400':
+          description: The request has already started and can no longer be canceled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Missing or invalid API credentials.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: The request does not exist or belongs to another account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+      - Requests
+      description: Cancel a request that has not started processing. A successful response has no body.
+components:
+  schemas:
+    ErrorResponse:
+      title: Error response
+      type: object
+      properties:
+        detail:
+          type: string
+      required:
+      - detail
+    RequestStatus:
+      title: Request
+      type: object
+      properties:
+        status:
+          enum:
+          - queued
+          - in_progress
+          - nsfw
+          - failed
+          - completed
+          - canceled
+          title: Status
+          type: string
+        request_id:
+          type: string
+          format: uuid
+        status_url:
+          type: string
+          format: uri
+        cancel_url:
+          type: string
+          format: uri
+        error:
+          type:
+          - string
+          - 'null'
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaOutput'
+        video:
+          $ref: '#/components/schemas/MediaOutput'
+        audio:
+          $ref: '#/components/schemas/MediaOutput'
+        audios:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaOutput'
+      required:
+      - status
+      - request_id
+    MediaOutput:
+      title: Media output
+      type: object
+      additionalProperties: false
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+  securitySchemes:
+    authKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use `Key {api_key_id}:{api_key_secret}`.
+x-mcp:
+  enabled: true

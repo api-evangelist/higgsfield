@@ -1,0 +1,153 @@
+openapi: 3.2.0
+info:
+  title: Higgsfield Minimax API
+  version: 2.0.0
+  description: Submit generation requests and retrieve their status and outputs.
+servers:
+- url: https://api.higgsfield.ai
+security:
+- authKey: []
+tags:
+- name: Minimax
+paths:
+  /minimax/hailuo-2.3/standard/image-to-video:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  title: Prompt
+                duration:
+                  enum:
+                  - 6
+                  - 10
+                  type: integer
+                  title: Duration
+                  default: 6
+                image_url:
+                  type: string
+                  title: Image URL
+                  format: uri
+                prompt_optimizer:
+                  type: boolean
+                  title: Prompt optimizer
+                  default: true
+              required:
+              - prompt
+              - image_url
+      responses:
+        '200':
+          description: The request status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStatus'
+      operationId: post_minimax_hailuo_2_3_standard_image_to_video
+      summary: Create minimax hailuo-2.3 standard image-to-video
+      tags:
+      - Minimax
+      description: Submit an asynchronous generation request to `/minimax/hailuo-2.3/standard/image-to-video`. The response includes request metadata for status tracking and cancellation.
+  /minimax/hailuo-2.3/standard/text-to-video:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  title: Prompt
+                duration:
+                  enum:
+                  - 6
+                  - 10
+                  type: integer
+                  title: Duration
+                  default: 6
+                prompt_optimizer:
+                  type: boolean
+                  title: Prompt optimizer
+                  default: true
+              required:
+              - prompt
+      responses:
+        '200':
+          description: The request status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStatus'
+      operationId: post_minimax_hailuo_2_3_standard_text_to_video
+      summary: Create minimax hailuo-2.3 standard text-to-video
+      tags:
+      - Minimax
+      description: Submit an asynchronous generation request to `/minimax/hailuo-2.3/standard/text-to-video`. The response includes request metadata for status tracking and cancellation.
+components:
+  schemas:
+    RequestStatus:
+      title: Request
+      type: object
+      properties:
+        status:
+          enum:
+          - queued
+          - in_progress
+          - nsfw
+          - failed
+          - completed
+          - canceled
+          title: Status
+          type: string
+        request_id:
+          type: string
+          format: uuid
+        status_url:
+          type: string
+          format: uri
+        cancel_url:
+          type: string
+          format: uri
+        error:
+          type:
+          - string
+          - 'null'
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaOutput'
+        video:
+          $ref: '#/components/schemas/MediaOutput'
+        audio:
+          $ref: '#/components/schemas/MediaOutput'
+        audios:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaOutput'
+      required:
+      - status
+      - request_id
+    MediaOutput:
+      title: Media output
+      type: object
+      additionalProperties: false
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+  securitySchemes:
+    authKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use `Key {api_key_id}:{api_key_secret}`.
+x-mcp:
+  enabled: true

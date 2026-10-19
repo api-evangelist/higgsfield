@@ -1,0 +1,125 @@
+openapi: 3.2.0
+info:
+  title: Higgsfield Soul API
+  version: 2.0.0
+  description: Submit generation requests and retrieve their status and outputs.
+servers:
+- url: https://api.higgsfield.ai
+security:
+- authKey: []
+tags:
+- name: Soul
+paths:
+  /higgsfield-ai/soul/standard:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                prompt:
+                  type: string
+                  title: Prompt
+                num_images:
+                  type: integer
+                  default: 1
+                  maximum: 4
+                  minimum: 1
+                resolution:
+                  enum:
+                  - 2K
+                  - 4K
+                  default: 2K
+                aspect_ratio:
+                  enum:
+                  - '1:1'
+                  - '4:3'
+                  - '3:4'
+                  - '3:2'
+                  - '2:3'
+                  - '5:4'
+                  - '4:5'
+                  - '16:9'
+                  - '9:16'
+                  - '21:9'
+                  type: string
+                  title: Aspect Ratio
+                  default: '4:3'
+              required:
+              - prompt
+      responses:
+        '200':
+          description: The request status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestStatus'
+      operationId: post_higgsfield_ai_soul_standard
+      summary: Create higgsfield-ai soul standard
+      tags:
+      - Soul
+      description: Submit an asynchronous generation request to `/higgsfield-ai/soul/standard`. The response includes request metadata for status tracking and cancellation.
+components:
+  schemas:
+    RequestStatus:
+      title: Request
+      type: object
+      properties:
+        status:
+          enum:
+          - queued
+          - in_progress
+          - nsfw
+          - failed
+          - completed
+          - canceled
+          title: Status
+          type: string
+        request_id:
+          type: string
+          format: uuid
+        status_url:
+          type: string
+          format: uri
+        cancel_url:
+          type: string
+          format: uri
+        error:
+          type:
+          - string
+          - 'null'
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaOutput'
+        video:
+          $ref: '#/components/schemas/MediaOutput'
+        audio:
+          $ref: '#/components/schemas/MediaOutput'
+        audios:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaOutput'
+      required:
+      - status
+      - request_id
+    MediaOutput:
+      title: Media output
+      type: object
+      additionalProperties: false
+      properties:
+        url:
+          type: string
+          format: uri
+      required:
+      - url
+  securitySchemes:
+    authKey:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: Use `Key {api_key_id}:{api_key_secret}`.
+x-mcp:
+  enabled: true
