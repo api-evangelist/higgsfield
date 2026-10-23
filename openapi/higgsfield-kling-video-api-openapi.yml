@@ -214,3 +214,9 @@ components:
       description: Use `Key {api_key_id}:{api_key_secret}`.
 x-mcp:
   enabled: true
+x-provenance:
+  method: harvested
+  publisher: Higgsfield
+  source: https://docs.higgsfield.ai/docs/openapi.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
